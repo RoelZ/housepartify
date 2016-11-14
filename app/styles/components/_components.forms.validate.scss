@@ -1,0 +1,99 @@
+﻿/// <reference path="../settings/_settings.colors.scss" />
+/// <reference path="../settings/_settings.global.scss" />
+/// <reference path="../settings/_settings.fonts.scss" />
+
+.form-error {
+    color: color(refuse);
+}
+
+&.form-valid {
+    color: color(accept);
+}
+
+.form-error, .form-valid {
+    @include transition(opacity, 0.25s);
+    margin: 0;
+    line-height: 24px;
+    font-size: 0.75rem;
+
+    font: {
+        family: $font-base;
+        weight: 100;
+    }
+}
+
+
+.callout {
+    margin-bottom: $base-spacing-unit;
+    padding: $base-spacing-unit;
+
+    p{
+        margin: 0;
+        font-size: 1.4rem;
+    }
+
+    &.form-error {
+        border-color: color(refuse);
+        background: color(refuse, light);
+        p{
+            color: color(blanc);
+        }
+    }
+
+    &.form-valid {
+        border-color: color(accept);
+        background: color(accept, light);
+        p{
+            color: color(blanc);
+        }
+    }
+}
+
+
+
+.input-group {
+
+    &.has-error {
+
+        label {
+            color: color(refuse);
+        }
+
+        .input-group-field {
+            padding-right: 30px;
+            border-color: color(refuse);
+
+            &:focus {
+                & ~ .form-error {
+                    opacity: 0.25;
+                }
+            }
+        }
+
+        .required {
+            color: inherit;
+        }
+    }
+
+    &.valid {
+
+        label {
+            color: color(accept);
+        }
+
+        .input-group-field {
+            padding-right: 30px;
+            border-color: color(accept);
+
+            &:focus {
+                & ~ .form-valid {
+                    opacity: 0.25;
+                }
+            }
+        }
+
+        .required {
+            color: inherit;
+        }
+    }
+}

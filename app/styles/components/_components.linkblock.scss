@@ -1,0 +1,28 @@
+﻿.blocklink{
+    margin: 0;
+    margin-bottom: $large-spacing-unit;
+    display: block;
+
+
+    .fixedheight{
+        height: 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .title, .text{
+        display: block;
+        margin: 0;
+    }
+    .title{
+        color: color(blanc);
+        font-size: 2rem;
+    }
+
+    .text{
+        color: color(primary);
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+}

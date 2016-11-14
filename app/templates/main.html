@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<!--[if lte IE 7]><html class="lt-ie10 old-ie" lang="nl"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="nl"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="nl"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="nl">
+<!--<![endif]-->
+<head>
+    <title><%= it.document.title %></title>
+    <meta charset="utf-8" />
+    <!--<link rel="stylesheet" type="text/css" href="styles/app.min.css">-->
+    <link href="<%= it.cssBasePath %>/app.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body  data-module="globalinit">
+
+
+    <%= it.include('header') %>
+
+   
+
+        <%= it.document %>
+
+
+                
+    <%= it.include('footer') %>
+
+
+    <div class="scroll-indicator" data-module="scrollindicator">
+    </div>
+    <script data-main="<%= it.jsBasePath %>/main.js" src="<%= it.jsBasePath %>/require.js"> </script>
+</body>
+</html>

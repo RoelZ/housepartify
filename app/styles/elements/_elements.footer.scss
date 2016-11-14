@@ -1,0 +1,31 @@
+﻿footer {
+    text-align: center;
+    color: color(blanc);
+
+    h2 {
+        font-family: $font-base;
+        font-size: 2rem;
+        margin-top: $large-spacing-unit*2;
+        margin-bottom: $base-spacing-unit*2;
+        display: inline-block;
+        @media (max-width: $screen-xs-max) {
+            margin-top: 0;
+            display: block;
+        }
+    }
+
+    p {
+        margin-top: $base-spacing-unit*2;
+        margin-bottom: $large-spacing-unit*2;
+        color: color(blanc);
+    }
+
+    img{
+        margin-right: $base-spacing-unit;
+        display: inline-block;
+        @media (max-width: $screen-xs-max) {
+            margin: $large-spacing-unit*2 auto $base-spacing-unit auto;
+            display: block;
+        }
+    }
+}

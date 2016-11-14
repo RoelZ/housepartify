@@ -1,0 +1,52 @@
+﻿form{
+
+}
+
+label{
+    font-family: $font-base;
+    cursor: pointer;
+    display: block;
+}
+
+input, input[type='text'], textarea, select, input[type='number'], input[type='password']{
+    font-family: $font-base;
+    border: 1px solid color(gray, verylight);
+    background-color: transparent;
+    margin: 0;
+    width: 100%;
+    display: block;
+
+
+    &:disabled{
+        opacity: 0.5;
+    }
+}
+
+input[type='file'], input[type='checkbox'], input[type='radio'] {
+    margin: 0;
+}
+
+fieldset {
+    border: none;
+    margin: 0 0 $base-spacing-unit 0;
+    padding: 0;
+    clear: both;
+}
+
+legend { 
+    margin-right: $small-spacing-unit;
+}
+
+input[type='submit']{
+    border: 0;
+}
+
+textarea{
+    min-height: 10rem;
+}
+
+
+@include placeholder {
+    color: color(gray);
+    font-size: 14px;
+}

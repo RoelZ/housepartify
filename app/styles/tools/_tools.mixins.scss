@@ -1,0 +1,127 @@
+@mixin font-size($font-size, $line-height: auto) {
+    font-size: ($font-size / $base-font-size) * 1rem;
+
+    @if $line-height == auto {
+        line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    }
+
+    @else {
+
+        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+            line-height: $line-height;
+        }
+
+        @elseif ($line-height != none and $line-height != false) {
+            @warn "D'oh! '#{$line-height}' is not a valid value for 'line-height'."
+        }
+    }
+}
+
+
+//Icon font mixin
+//USAGE: icon($position: before, $icon: false, $styles: true)
+//Example: @include icon(before, email);
+//See settings.fonts.scss for currently enabled icons
+@mixin icon($position: before, $icon: false, $styles: true) {
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    // Either a :before or :after pseudo-element, or both, defaulting to :before
+    &:#{$position} {
+        @if $icon {
+            // A particular icon has been specified
+            content: "#{map-get($icons, $icon)}";
+        }
+
+        @if $styles {
+            // Supportive icon styles required
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-family: 'FontAwesome';
+            text-decoration: none;
+        }
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}
+
+
+
+//Basic coloring + hover, active and transition mixin.
+//Minimum Usage: @include paint($color); <= $color needs to be present in color Map and requires a base, darker and lighter color
+//If color is not supplied, defaults to white.
+//background color
+@mixin paint($backgroundColor, $color: 'blanc' ) {
+    @if ($backgroundColor == transparent) {
+        color: color($color, base);
+        background-color: $backgroundColor;
+        -webkit-transition: background-color 0.2s, color 0.2s;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover, &:focus {
+            background-color: $backgroundColor;
+            color: color($color, light);
+            text-decoration: underline;
+        }
+
+        &:active {
+            background-color: $backgroundColor;
+            color: color($color, dark);
+        }
+    }
+    @else {
+        color: color($color, base);
+        background-color: color($backgroundColor, base);
+        -webkit-transition: background-color 0.2s, color 0.2s;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover, &:focus {
+            background-color: color($backgroundColor, light);
+            color: color($color, light);
+            text-decoration: underline;
+        }
+
+        &:active {
+            background-color: color($backgroundColor, dark);
+            color: color($color, dark);
+        }
+    }
+
+    @content;
+}
+
+
+/*
+Placeholder mixin to supply css to a single class instead of four different vendor prefixes
+Usage:
+@include placeholder {
+    font-style:italic;
+    color: red;
+}
+*/
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-shadow($offsetX: 5px, $offsetY: 5px, $blur: 5px, $size: 5px, $color: $color-gray-very-light) {
+    -webkit-box-shadow: $offsetX $offsetY $blur $size $color;
+    -moz-box-shadow: $offsetX $offsetY $blur $size $color;
+    box-shadow: $offsetX $offsetY $blur $size $color;
+}
+
+@mixin transition ($element, $timing, $ease: ease) {
+    -webkit-transition: $element $timing $ease;
+    -moz-transition: $element $timing $ease;
+    transition: $element $timing $ease;
+}

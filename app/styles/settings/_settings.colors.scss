@@ -1,0 +1,82 @@
+/* Base Color maps */
+$color-primary:             #b30f41;    // text color (black/gray)
+$color-secondary:           #5abeb9;    // light blue
+
+
+$color-tertiary:            #ff0000;    // not set!
+$color-quartiary:           #ffff00;    // not set!
+
+
+$color-accept:              #006600;    //'Correct' color
+$color-refuse:              #bf1034;    //'Error' color
+$color-shade-amount:        7%;
+$color-trans-amount:        0.5;
+$color-white:               #ffffff;
+$color-white-broken:        #fafafa;
+
+// grayscale 
+$color-gray:                #666666; 
+$color-gray-light:          #d9d9d9;
+$color-gray-verylight:      #ebebeb;  
+
+$color-deal-green:          #96c11f;  
+$color-deal-orange:         #ed6939;       
+
+
+// color variable map
+$colors: (
+    primary: (
+        base: $color-primary,
+        light: lighten($color-primary, $color-shade-amount),
+        dark: darken($color-primary, $color-shade-amount),
+        trans: transparentize($color-primary, $color-trans-amount)
+    ),
+    secondary: (
+        base: $color-secondary,
+        light: lighten($color-secondary, $color-shade-amount),
+        dark: darken($color-secondary, $color-shade-amount),
+        trans: transparentize($color-secondary, $color-trans-amount)
+    ),
+    tertiary: (
+        base: $color-tertiary,
+        light: lighten($color-tertiary, $color-shade-amount),
+        dark: darken($color-tertiary, $color-shade-amount),
+        trans: transparentize($color-tertiary, $color-trans-amount)
+    ),
+    //
+    quartiary: (
+        base: $color-quartiary,
+        light: lighten($color-quartiary, $color-shade-amount),
+        dark: darken($color-quartiary, $color-shade-amount),
+        trans: transparentize($color-quartiary, $color-trans-amount)
+    ),
+    //Good, correct, accept, etc
+    accept: (
+        base: $color-accept,
+        light: lighten($color-accept, $color-shade-amount),
+        dark: darken($color-accept, $color-shade-amount),
+        trans: transparentize($color-accept, $color-trans-amount)
+    ),
+    //Faulty, incorrect, error, etc
+    refuse: (
+        base: $color-refuse,
+        light: lighten($color-refuse, $color-shade-amount),
+        dark: darken($color-refuse, $color-shade-amount),
+        trans: transparentize($color-refuse, $color-trans-amount)
+    ),
+    blanc: (
+        base: $color-white,
+        broken: $color-white-broken,
+
+        //Note: supplied to prevent problems with Paint mixin
+        dark: $color-white,
+        light: $color-white,
+    ),
+    gray: (
+        base: $color-gray,
+        light: $color-gray-light,
+        verylight: $color-gray-verylight,
+        dark: darken($color-gray, $color-shade-amount),
+        trans: transparentize($color-gray, $color-trans-amount)
+    )
+);

@@ -1,0 +1,78 @@
+﻿//figured home should get his own piece of scss, as this is usually larded with exceptions
+
+.home{
+    &-search{
+
+        .col-xs-12{
+            padding: 0;
+        }
+        &-content{
+            //width: 60rem;
+            position: absolute;
+            bottom: 5rem;
+            padding: $medium-spacing-unit;
+            margin: 0 auto;
+            background-color: rgba(82,148,181, 0.8);
+
+            @media (max-width: $screen-xs-max) {
+                background-color: color(tertiary);
+                position: relative;
+                bottom: 0;
+            }
+
+            h1{
+                color: color(blanc);
+                margin-top: 0;
+                margin-bottom: $medium-spacing-unit;
+            }
+
+            input[type="text"]{
+                background-color: color(blanc);
+                border-radius: $base-radius;
+                padding: $base-spacing-unit;
+                display: inline-block;
+                border: 0;
+                width: 100%;
+            }
+        
+            
+            .btn{
+                padding: $base-spacing-unit;
+                line-height: 20px;
+                margin: 0;
+                float: right;
+                border: 0;
+            }
+
+            .list{
+                margin-top: $medium-spacing-unit;
+                @media (max-width: $screen-xs-max) {
+                    text-align: center;
+                }
+                li {
+                    a{
+                        
+                        color: color(blanc);
+                        text-decoration: none;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+
+                        @media (max-width: $screen-xs-max) {
+                            padding: $small-spacing-unit;
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            .subjects{
+                text-align: center;
+                .btn{
+                    float: none;
+                    width: 80%;
+                }
+            }
+        }
+    }
+}

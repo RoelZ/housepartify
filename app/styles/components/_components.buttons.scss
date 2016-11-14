@@ -1,0 +1,108 @@
+/// <reference path="../settings/_settings.colors.scss" />
+/// <reference path="../settings/_settings.global.scss" />
+/// <reference path="../settings/_settings.fonts.scss" />
+
+.btn {
+    @include paint(primary, blanc) {
+    }
+
+    line-height: 1.25rem;
+    display: inline-block;
+    padding: $base-spacing-unit $base-spacing-unit;
+    position: relative;
+    text-decoration: none;
+    margin-bottom: $base-spacing-unit;
+
+    font: {
+        family: $font-base;
+        weight: 400;
+    }
+
+    &.inactive {
+        cursor: not-allowed;
+        color: color(gray, dark) !important;
+    }
+
+    &-primary {
+        //Already set as base style
+        &-off {
+            @include paint(blanc, primary);
+        }
+
+        &-trans {
+            @include paint(transparent, primary);
+        }
+    }
+
+    &-secondary {
+        @include paint(secondary, blanc);
+
+        &-off {
+            @include paint(blanc, secondary);
+        }
+        &-trans {
+            @include paint(transparent, secondary);
+        }
+    }
+
+    &-tertiary {
+        @include paint(tertiary, blanc);
+
+        &-off {
+            @include paint(blanc, tertiary);
+        }
+    }
+
+    &-gray {
+        @include paint(gray, blanc);
+
+        &-off {
+            @include paint(blanc, gray);
+        }
+    }
+
+    &-accept {
+        @include paint(accept, blanc);
+
+        &-off {
+            @include paint(blanc, accept);
+        }
+
+        &-trans {
+            @include paint(transparent, accept);
+        }
+    }
+
+    &-refuse {
+        @include paint(refuse, blanc);
+
+        &-off {
+            @include paint(blanc, refuse);
+        }
+        &-trans {
+            @include paint(transparent, refuse);
+        }
+    }
+
+
+    &-subjects{
+        @media (max-width: $screen-xs-max) {
+            float: right;
+        }
+    }
+
+    &-search{
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: transparent;
+        color: color(tertiary);
+        font-size: 2rem;
+
+        &:hover, &:active, &:focus{
+            background-color: transparent;
+            color: color(tertiary, light);
+        }
+    }
+}

@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<!--[if lte IE 7]><html class="lt-ie10 old-ie" lang="nl"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="nl"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="nl"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="nl">
+<!--<![endif]-->
+<head>
+    <title>Name Generator</title>
+    <meta charset="utf-8" />
+    <!--<link rel="stylesheet" type="text/css" href="styles/app.min.css">-->
+    <link href="styles/app.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="scripts/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        
+        $(function(){
+            
+            var aPrefix = Array;
+            var aSuffix = Array;
+
+            aPrefix = { neutral: ["DJ", "Grandmaster", "DeeJay", "Party Animal", "MC"], 
+                        male: ["Beatboy", "Master", "Mister", "Mr.", "B-Boy", "Mista"], 
+                        female: ["Lady", "Partygirl", "Miss", "Flygirl", "Sister"] };
+
+            // vowel = klinker (aeyuio)
+            // consonant = medeklinker
+            aSuffix = { vowel: ["izzle", "axx", "ixx", "izzy", ], 
+                        consonant: [ "rexx", "flexx", "max", "ross", "riffle", "jay", "jazz", "bass", "BoomBoom", "jaxx", "boogie", "funky", "bounce" ] };
+            
+            // DJ R. Heesterbeekizzle
+            // DJ La Heesterbeek
+            // DJ R. Izzle
+            // DJ RR. Izzle
+
+            // van der tocht = vandertox
+
+            // een lettergreep
+
+            function getRandom(array){
+                return Math.floor(Math.random() * array.length);
+            }
+
+            function searchVowels(sName,position){                
+                aSibblings = sName.match(/[aeiouy]{1,2}/g);
+                console.log(sName.charAt(4));
+                // if name has more then one vowel we strip it from their last
+                if(aSibblings.length > 1){
+                    if(position == 'start'){
+                        if(aSibblings.length < 3)
+                        {
+                            console.log(aSibblings[0].length);
+
+                            if(aSibblings[0].length == 1){
+                                //iLength = aSibblings[0].length;
+                                iStart = sName.indexOf(aSibblings[0])+1;
+                                iEnd = sName.length;
+                                //console.log(sName.charAt(iStart));
+                                
+                                sLast = aSibblings[0]+sName.charAt(iStart);
+
+                                //console.log(sName);
+
+                                sName = sName.slice(0,(iStart-iEnd));
+                                return sName+sLast;
+
+                            }
+                            else {
+                                // van twee lettergrepen de eerste volledig tonen
+                                iStart = sName.lastIndexOf(aSibblings[1]);
+                                iEnd = sName.length;
+                                return sName.slice(0,(iStart-iEnd));
+                            }
+                            //console.log(aSibblings[0].length+', '+iStart+', '+iEnd);
+                            
+                        }
+                        else {
+                            return sName;
+                        }
+                    }
+                    else {
+                        iStart = sName.lastIndexOf(aSibblings[aSibblings.length-1]);
+                        iEnd = sName.length;
+                        return sName.slice(0,((iStart-iEnd)-1));
+                    }                       
+                }
+                else {
+                    return sName;
+                } 
+            }
+
+            // Create Prefix
+            function getPrefix(){
+                if($('#genderMan').is(':checked')){                    
+                    sPrefix = aPrefix.male[getRandom(aPrefix.male)];                    
+                }
+                else if($('#genderVrouw').is(':checked')){
+                    sPrefix = aPrefix.female[getRandom(aPrefix.female)];
+                }
+                return Math.random() < 0.5 ? sPrefix : aPrefix.neutral[getRandom(aPrefix.neutral)];    
+            }
+
+            // Create Firstname
+            function getFirstName(){
+
+                if($("#firstname").val().length){                
+                    iRandom = Math.floor(Math.random() * 4);
+                    var sName = $("#firstname").val();
+                    //sName = sName.charAt(0).toUpperCase();
+
+                    // 1e letters van de naam (tot er een klinker komt)  - achternaam met suffix
+                    if(iRandom == 0){
+                        return searchVowels(sName,"start");
+                    }
+                    // voornaam vervangen door La 
+                    else if(iRandom == 1){
+                        return "La";
+                    }
+                    // 1e letter voornaam
+                    else if(iRandom == 2){
+                        return sName = sName.substr(0,1).toUpperCase()+".";
+                    }
+                    // 1e letter voornaam x 2
+                    else if(iRandom == 3){
+                        return sName.substr(0,1)+sName.substr(0,1).toUpperCase()+".";
+                    } 
+                } 
+                else 
+                {
+                    return "Essent";
+                }
+
+            }
+
+            // Create Surname
+            function getSurName(){
+                if($("#surname").val().length){
+
+                    sName = $("#surname").val().replace(/\s/g, '');
+
+                    sStrippedSurname = searchVowels(sName);
+
+                    // we get the last character so we can place the right suffix
+                    sLastChar = sStrippedSurname.substr(sStrippedSurname.length-1);
+
+
+                    if(sLastChar.match(/[aeiouy]/g))
+                        sSuffix = aSuffix.consonant[getRandom(aSuffix.consonant)];
+                    else
+                        sSuffix = aSuffix.vowel[getRandom(aSuffix.vowel)];
+                    
+                    
+                    
+                    //console.log(sName.match(/[aeiouy]{1,2}/g));
+                    //lastIndex = sName.lastIndexOf(sName.match(/[aeiouy]{1,2}/g).length);
+                    //console.log(sStrippedSurname);
+
+                    return sStrippedSurname+sSuffix;
+
+                }
+            }
+            function getName(){
+
+                var sPrefix = getPrefix();
+                var sFirstName = getFirstName();
+                var sSurName = getSurName();       
+
+                return sPrefix+' '+sFirstName+' '+sSurName;
+            }
+                
+            
+
+
+
+            // Trigger generator
+            $('button[type="submit"]').click( function(){
+                $('.generatedName h2').text(getName());
+            });
+            
+            //aSuffix = new Array();
+            //aSuffix.push("");
+            //console.log(aPrefix);
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+
+<header>
+    
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1>Housepartify</h1>
+            <h2>You're name</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 cta-form">            
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>Voornaam</label>
+                        <input id="firstname" type="text" class="form-control" placeholder="Voornaam">
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <label>Achternaam</label>
+                        <input id="surname" type="text" class="form-control" placeholder="Achternaam">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div class="form-group">
+                        <div class="radio-inline">
+                            <input type="radio" name="genderOptions" id="genderMan" value="man" checked="checked">
+                            <label class="radio" for="genderMan">Man</label>
+                        </div>
+                        <div class="radio-inline">
+                            <input type="radio" name="genderOptions" id="genderVrouw" value="vrouw">                            
+                            <label class="radio" for="genderVrouw">Vrouw</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <button type="submit" class="btn btn-lg btn-primary">Spin that shit!</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 text-center generatedName">
+        <h2></h2>
+        </div>
+    </div>
+</div>
+</body>
+</html>

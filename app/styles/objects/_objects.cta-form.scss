@@ -1,0 +1,11 @@
+.cta-form {
+	padding:2rem;
+	color:rgb(179,15,65);
+	background:$color-white;
+	border-radius:5px;
+
+	button {
+		border:color(secondary, dark);
+		background:color(secondary, base);
+	}
+}

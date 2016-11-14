@@ -1,0 +1,14 @@
+﻿.background{
+
+    &-hero{
+        background-size: cover;
+        height: 50rem;
+        background-position: center center;
+        @media (max-width: $screen-sm-max) {
+            height: 35rem;
+        }
+        @media (max-width: $screen-xs-max) {
+            height: 15rem;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+﻿.list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    &-inline{
+        display: inline-block;
+    }
+
+    &-diseases{
+        margin: $large-spacing-unit 0;
+        column-count: 3;
+        @media (max-width: $screen-sm-max) {
+            column-count: 2;
+        }
+        @media (max-width: $screen-xs-max) {
+            column-count: 1;
+        }
+
+        
+
+        li{
+            font-size: 1.5rem;
+            font-weight: bold;
+            @media (min-width: $screen-xs-max) {   
+                display: block;
+                padding: $small-spacing-unit;
+            }
+
+            a{
+                padding: $small-spacing-unit;
+                text-decoration: none;
+                @media (max-width: $screen-xs-max) {
+                    
+                    display: block;
+                }
+                &:hover{
+                    text-decoration: underline;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

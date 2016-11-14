@@ -1,0 +1,20 @@
+{
+  "name": "NameGeneratorEssent",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "Roel Heesterbeek"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "3.3.7"
+  }
+}

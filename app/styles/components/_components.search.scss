@@ -1,0 +1,40 @@
+﻿.search {
+    margin-bottom: $large-spacing-unit;
+
+    input[type="text"] {
+        background-color: color(blanc);
+        border-radius: $base-radius;
+        padding: $base-spacing-unit;
+        display: inline-block;
+        width: 100%;
+        border: 0;
+    }
+
+    .btn {
+        padding: $base-spacing-unit $large-spacing-unit;
+        line-height: 20px;
+        margin: 0;
+        float: right;
+        border: 0;
+        font-weight: bold;
+    }
+
+
+    &-filter{
+        
+        margin: $base-spacing-unit 0 $large-spacing-unit;
+
+        .highlight-gray{
+            padding: $base-spacing-unit $medium-spacing-unit;
+        }
+
+        .list{
+            margin: 0;
+            li{
+                label{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

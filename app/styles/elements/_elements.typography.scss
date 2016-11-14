@@ -1,0 +1,88 @@
+body{
+    font-family: $font-base;
+    font-size: $base-font-size;
+    color: color(primary);
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: $font-header;
+}
+h1 {
+    font-size: 5rem;
+    color: color(secondary);
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.6rem;
+}
+
+h6 {
+    font-size: 1.8rem;
+}
+
+a{
+    text-decoration:  underline;
+    color: inherit;
+
+    &:hover{
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+blockquote{
+    font-size: $base-font-size;
+    color: color(gray);
+}
+
+//
+p, td, th, li, dt, dd {
+    font-size: 1.4rem;
+    color: color(gray, base);
+    font-family: $font-base;
+}
+
+label{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+i, em {
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+small {
+}
+
+mark {
+}
+
+del {
+    text-decoration: line-through;
+}
+
+ins, u {
+    text-decoration: underline;
+}
+
+sub {
+}
+
+sup {
+
+}

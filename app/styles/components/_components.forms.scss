@@ -1,0 +1,194 @@
+﻿/// <reference path="../settings/_settings.colors.scss" />
+/// <reference path="../settings/_settings.global.scss" />
+/// <reference path="../settings/_settings.fonts.scss" />
+
+
+@import "components.forms.validate";
+
+
+.required {
+    font-weight: 700;
+    color: color(primary);
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: $small-spacing-unit;
+    &.input-date {
+        
+        @include icon(after, calendar);
+
+        &:after {
+            position: absolute;
+            right: 1.5rem;
+            top: 0.4rem;
+            color: color(secondary);
+            font-size: 1.2rem;
+        }
+
+        > input[type="text"] {
+            padding-right: 30px;
+        }
+            
+    }
+}
+
+//Input text styles
+//Base style
+input[type="text"] {
+
+    &:focus {
+    }
+}
+
+
+input[type="file"] {
+
+    & + .fileOutput {
+        margin-left: 1rem;
+    }
+}
+
+
+
+// Radio and checkbox inputs - shared styles
+input[type="checkbox"], input[type="radio"] {
+    display: none;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+
+label.radio, label.checkbox {
+    display: inline-block;
+    line-height: 16px;
+    position: relative;
+    padding-left: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        position: absolute;
+        left: 0;
+        top: -1px;
+        transition: all .2s ease-in-out;
+    }
+}
+
+input[type='checkbox']:disabled + label.checkbox, input[type='radio']:disabled + label.radio {
+    color: color(gray, light);
+    cursor: default;
+}
+
+
+//Specific checkbox stylings
+label.checkbox:before {
+    border: 2px solid color(primary);
+    border-radius: 2px;
+    background-color: color(blanc);
+}
+
+input[type='checkbox']:checked + label.checkbox:before {
+    content: "\f00c";
+    line-height: 18px;
+    font-size: 14px;
+    color: color(blanc);
+    background-color: color(primary);
+    border: 0;
+    font-family: 'FontAwesome';
+    text-align: center;
+}
+
+input[type='checkbox']:disabled + label.checkbox:before {
+    border-color: color(gray, light);
+}
+
+
+select {
+    font-size: 14px;
+    background-color: color(blanc);
+    border-color: color(grey, trans);
+    color: color(grey);
+}
+
+
+// Specific Radio stylings
+label.radio:before, label.radio:after {
+    border-radius: 50%;
+    position: absolute;
+}
+
+label.radio:before {
+    width: 8px;
+    height: 8px;
+    background: color(primary);
+    top: 4px;
+    left: 4px;
+    transform: scale(0.1);
+    opacity: 0;
+}
+
+label.radio:after {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    left: -1px;
+    top: -1px;
+    border: 2px solid color(primary);
+}
+
+input[type='radio']:checked + label.radio:before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+input[type='radio']:checked + label.radio:after {
+    border-color: color(primary);
+}
+
+input[type='radio']:disabled + label.radio:before {
+    opacity: 1;
+    transform: scale(0.1);
+    background: color(gray, light);
+}
+
+input[type='radio']:disabled + label.radio:after {
+    border-color: color(gray, light);
+}
+
+
+
+.datepicker{
+    
+    position: relative;
+    @include icon(after, calendar){
+        position: absolute;
+        right: $base-spacing-unit;
+
+    }
+}
+
+
+.file{
+    &-input{
+        
+    }
+    &-input-label{
+        float: left;
+    }
+    &-selected{
+        display: inline-block;
+        padding: .85em 1em;
+        margin-bottom: 1rem;
+        font-size: .9rem;
+        line-height: 1;
+        
+    }
+}

@@ -1,0 +1,77 @@
+
+// (S)CSS architecture based on ITCSS principle, see
+// http://technotif.com/manage-large-css-projects-with-itcss/ 
+
+// Bootstrap framework
+@import "bootstrap";
+
+/* =====================
+		Settings
+   =================== */
+/* Variables */
+@import "settings/_settings.colors";
+@import "settings/_settings.fonts";
+@import "settings/_settings.global";
+
+
+/* ======================
+		Tools
+   ==================== */
+/* Functions, mixins etc.*/
+@import "tools/_tools.mixins";
+@import "tools/_tools.functions";
+
+/* ======================
+		 Generic
+   ==================== */
+/* Low-specificity, far-reaching rulesets */
+@import "generic/_generic.shared";
+@import "generic/_generic.box-sizing";
+
+/* ======================
+   Elements
+   ==================== */
+/* Unclassed HTML elements */
+
+@import "elements/_elements.footer";
+@import "elements/_elements.forms";
+@import "elements/_elements.header";
+@import "elements/_elements.images";
+@import "elements/_elements.links";
+@import "elements/_elements.lists";
+@import "elements/_elements.typography";
+
+
+/* ======================
+   Objects
+   ==================== */
+/* Design-free objects, abstractions and patterns */
+@import "objects/_objects.layout";
+@import "objects/_objects.globalModifiers";
+@import "objects/_objects.cta-form";
+
+/* ======================
+   Vendor
+   ==================== */
+/* Third party components */
+
+@import "vendor/font-awesome";
+
+/* ======================
+   Components
+   ====================== */
+/* Components and widgets */
+@import "components/_components.buttons";
+@import "components/_components.forms";
+@import "components/_components.home";
+@import "components/_components.images";
+@import "components/_components.linkblock";
+@import "components/_components.lists";
+@import "components/_components.search";
+
+/* ======================
+   Trumps
+   ====================== */
+/* Helper classes and overrides */
+@import "trumps/_trumps.styletile";
+@import "trumps/_trumps.main";

@@ -1,0 +1,5 @@
+﻿// retrieve color from $colors map ie. `color(base, primary)`
+@function color($color-name, $color-variant:base) {
+  // color variant is NOT optional
+  @return map-get(map-get($colors, $color-name), $color-variant);
+}
