@@ -1,0 +1,82 @@
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes houseparty {
+  from {
+    -webkit-transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+    transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: perspective(600px) rotateX(-2deg) scale3d(1.01, 1.01, 1.01);
+    transform: perspective(600px) rotateX(-2deg) scale3d(1.01, 1.01, 1.01);
+  }
+
+  to {
+    -webkit-transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+    transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes houseparty {
+  from {
+    -webkit-transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+    transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: perspective(600px) rotateX(-2deg) scale3d(1.01, 1.01, 1.01);
+    transform: perspective(600px) rotateX(-2deg) scale3d(1.01, 1.01, 1.01);
+  }
+
+  to {
+    -webkit-transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+    transform: perspective rotateX(0deg) scale3d(1, 1, 1);
+  }
+}
+
+.houseparty {
+	-webkit-animation-name: houseparty;
+	animation-name: houseparty;
+	perspective-origin: center bottom;
+	transition-timing-function: cubic-bezier(0,2,1,0.5);
+}
+
+
+@-webkit-keyframes fadeInWait {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInWait {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeInWait {
+  -webkit-animation-name: fadeInWait;
+  animation-name: fadeInWait;
+  animation-delay: 1s;
+}

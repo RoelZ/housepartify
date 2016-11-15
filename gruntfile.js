@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/styles',
-                    src: ['*.{scss,sass}'],
+                    src: ['*.{css,scss,sass}'],
                     dest: '<%= config.deployFolder %>/styles',
                     ext: '.css'
                 }]
@@ -279,7 +279,7 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             pages: {
-                files: ['<%= config.app %>/**/**/*.html'],
+                files: ['<%= config.app %>/*.html','<%= config.app %>/**/**/*.html'],
                 tasks: ['zetzer:dev']
             },
             sass: {

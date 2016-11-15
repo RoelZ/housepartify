@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<!--[if lte IE 7]><html class="lt-ie10 old-ie" lang="nl"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 ie8" lang="nl"><![endif]-->
+<!--[if IE 9]><html class="lt-ie10 ie9" lang="nl"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="nl">
+<!--<![endif]-->
+<head>
+    <title>Essent - Housepartify</title>
+    <meta charset="utf-8" />
+    <!--<link rel="stylesheet" type="text/css" href="styles/app.min.css">-->
+    <link href="styles/animate.min.css" rel="stylesheet">
+    <link href="styles/app.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="scripts/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h1 class="animated lightSpeedIn">Housepartify</h1>
+                    <h2 class="animated fadeInWait">Your name</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+
+        <div class="row">
+            
+            <div class="col-xs-3 hidden-xs">
+                <div class="animated houseparty infinite"><img src="images/house-one.png"></div>
+            </div>
+
+            <div class="col-xs-12 col-md-4 col-md-offset-1 cta-form"> 
+
+                <div class="row">           
+                    <div class="col-xs-12 text-center">
+                    <h2>Wat is jouw housepartynaam?</h2>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>Voornaam</label>
+                                <input id="firstname" type="text" class="form-control" placeholder="Voornaam">
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>Achternaam</label>
+                                <input id="surname" type="text" class="form-control" placeholder="Achternaam">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <div class="form-group">
+                                <div class="radio-inline">
+                                    <input type="radio" name="genderOptions" id="genderMan" value="man" checked="checked">
+                                    <label class="radio" for="genderMan">Man</label>
+                                </div>
+                                <div class="radio-inline">
+                                    <input type="radio" name="genderOptions" id="genderVrouw" value="vrouw">                            
+                                    <label class="radio" for="genderVrouw">Vrouw</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <button type="submit" class="btn btn-lg btn-primary">Housepartify mijn naam</button>
+                        </div>
+                    </div> 
+
+                    </div>
+                </div> 
+
+                <div class="row generatedName hidden">
+                    <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+                        <h2 class="animated"></h2>
+                    </div>
+                </div>             
+
+            </div>
+
+            <div class="col-xs-3 col-xs-offset-1 hidden-xs">
+                <div class="animated houseparty infinite"><img src="images/house-two.png"></div>
+            </div>
+
+        </div>
+
+        
+
+    </main>
+
+
+    <footer class="align-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,10 +1,22 @@
+header { 
+	margin:0;
+}
+
 .cta-form {
 	padding:2rem;
 	color:rgb(179,15,65);
-	background:$color-white;
+	background:$color-gray-verylight;
 	border-radius:5px;
 
+	-webkit-transition: height ease 1s;
+	transition: height ease 1s;
+
+	h2 {
+		margin-bottom:4rem;
+	}
 	button {
+		margin:2rem 0;
+		padding: 1.5rem 4rem;
 		border:color(secondary, dark);
 		background:color(secondary, base);
 	}
